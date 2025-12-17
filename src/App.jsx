@@ -1,20 +1,27 @@
 import './App.css'
-import TituloPrincipal from './components/TituloPrincipal'
 import NavBar from './components/NavBar'
-import ButtonGeneric from './components/ButtonGeneric'
-import ItemListContainer from "./components/ItemListContainer";
+import HomeView from './views/HomeView';
+import ContactView from './views/ContactView';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import CategoryView from './views/CategoryView';
+import ProductDetail from './components/ProductDetail';
 
 function App() {
 
   return (
     <>
+    <BrowserRouter>
     <NavBar/>
-    <TituloPrincipal/>
-            <div>
-      <ItemListContainer saludo="¡Inspirado en mitos. Creado para vos.!" />
-    </div>
+    <Routes>
+      <Route exact path="/" element={<HomeView/>}/>
+      <Route exact path="Contact" element={<ContactView/>}/>
+      <Route exact path="Category/:catName" element={<CategoryView/>}/>
+      <Route exact path="/product/:id" element={<ProductDetail />} />
+    </Routes>
+    <footer>Elysium Store - Derechos reservados - 2025</footer>
+    </BrowserRouter>
     </>
-  )
+  );
 }
 
 export default App
