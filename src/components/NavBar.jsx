@@ -1,8 +1,7 @@
 import { Link } from 'react-router-dom';
 import Carrito from './Carrito';
 import './NavBar.css'
-import ContactView from '../views/ContactView';
-import CategoryView from '../views/CategoryView';
+
 
 export default function NavBar() {
     return (

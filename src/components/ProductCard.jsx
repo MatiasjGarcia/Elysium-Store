@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+
+
 export default function ProductCard({ product }) {
   return (
     <>
@@ -7,7 +10,9 @@ export default function ProductCard({ product }) {
         </h3>
         <img width={160} src={product.image} alt={product.title} />
         <p>${product.price}</p>
-        <button>Mas detalles</button>
+        <Link to={`/product/${product.id}`}>
+        <button> Mas detalles</button>
+        </Link>
       </article>
     </>
   );

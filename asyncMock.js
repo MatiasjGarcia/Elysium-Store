@@ -32,7 +32,7 @@ export const getProducts = () => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(products);
-    }, 2000);
+    }, 1000);
   });
 };
 
@@ -46,5 +46,15 @@ export const getCategory = (category) => {
       resolve(products.filter((product) => product.category === category));
       //va a retornar un array de prods que cumplan con esa condicion
     }, 1000);
+  });
+};
+
+// export de mas detalles
+export const getProductById = (id) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const product = products.find(p => p.id === Number(id));
+      product ? resolve(product) : reject("Producto no encontrado");
+    }, 500);
   });
 };
