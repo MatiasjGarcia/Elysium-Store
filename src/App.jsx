@@ -1,27 +1,40 @@
 import './App.css'
 import NavBar from './components/NavBar'
-import HomeView from './views/HomeView';
-import ContactView from './views/ContactView';
+import ContactView from './views/ContactView'
+import CategoryView from './views/CategoryView'
+import ItemDetailContainer from './components/ItemDetailContainer'
+import ItemListContainer from './components/ItemListContainer'
+import Cart from "./components/Cart";
+import HomeView from './views/HomeView'
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import CategoryView from './views/CategoryView';
-import ProductDetail from './components/ProductDetail';
 
 function App() {
-
   return (
-    <>
     <BrowserRouter>
-    <NavBar/>
-    <Routes>
-      <Route exact path="/" element={<HomeView/>}/>
-      <Route exact path="Contact" element={<ContactView/>}/>
-      <Route exact path="Category/:catName" element={<CategoryView/>}/>
-      <Route exact path="/product/:id" element={<ProductDetail />} />
-    </Routes>
-    <footer>Elysium Store - Derechos reservados - 2025</footer>
-    </BrowserRouter>
+      <NavBar />
+
+      <Routes>
+        <Route
+  path="/"
+  element={
+    <>
+      <HomeView />
+      <ItemListContainer />
     </>
+  }
+/>
+
+        <Route path="/contact" element={<ContactView />} />
+        <Route path="/category/:catName" element={<CategoryView />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/item/:id" element={<ItemDetailContainer />} />
+      </Routes>
+
+      <footer>Elysium Store - Derechos reservados - 2025</footer>
+    </BrowserRouter>
   );
 }
 
-export default App
+export default App;
+

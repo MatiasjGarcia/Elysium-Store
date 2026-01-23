@@ -1,37 +1,22 @@
 import { Link } from 'react-router-dom';
-import Carrito from './Carrito';
 import './NavBar.css'
+import CartWidget from "./CartWidget";
+
 
 
 export default function NavBar() {
     return (
         <>
             <nav className='NavBarStyle'>
-                <Link to="/">
-                    <button>
-                        <img
-                            className="LogoStyle" src="/logo-Elysium.png" alt="logo" />
-                    </button>
-                </Link>
+                <Link to="/">ELYSIUM</Link>
 
-                <button>
-                    <Link to="/category/FITNESS">FITNESS</Link>
-                </button>
+                <Link to="/category/hombre">Hombre</Link>
 
-                <button>
-                    <Link to="/category/CASUAL">CASUAL</Link>
-                </button>
+                <Link to="/category/mujer">Mujer</Link>
 
-                <button>
-                    <Link to="/contact">
-                        <img
-                            style={{ width: 90 }}
-                            src="https://static.vecteezy.com/system/resources/previews/002/205/854/non_2x/email-icon-free-vector.jpg"
-                            alt="contact"
-                        />
-                    </Link>
-                </button>
-                <Carrito />
+                <Link to="/contact">Contact</Link>
+
+                <CartWidget />
             </nav>
         </>
     );

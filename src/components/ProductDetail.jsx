@@ -1,28 +1,33 @@
-import { useEffect, useState } from 'react';
-import { getProduct } from '../../asyncMock';
-import { useParams } from "react-router-dom";
+import { useState } from "react";
+import ItemCount from "./ItemCount";
+import { useCart } from "../context/CartContext";
 
-export default function ProductDetail() {
-  const { id } = useParams(); //  ID dinámico
-  const [product, setProduct] = useState(null);
+export default function ProductDetail({ product }) {
+  const [added, setAdded] = useState(false);
+  const { addItem } = useCart();
 
-  useEffect(() => {
-    const prod = getProduct(id);
-    setProduct(prod);
-  }, [id]);
-    if (!product) {
-    return <h2>Cargando producto...</h2>;
-  }
+  const onAdd = (quantity) => {
+    addItem(product, quantity);
+    setAdded(true);
+  };
 
   return (
     <>
-      <h1>Vista de Detalle de producto {id}</h1>
-      <p>ID: {product.id}</p>
-      <h3>Nombre: {product.title}</h3>
-      <img src={product.image} alt={product.title} width={300} />
-      <p>Descripcion: {product.description}</p>
-      <p>Categoria: {product.category}</p>
-      <p>Precio ${product.price}</p>
+     <img
+        src={product.image}
+        alt={product.title}
+        style={{ width: 300, objectFit: "contain" }}
+      />
+      <h3>{product.title}</h3>
+      <p>${product.price}</p>
+
+      {product.stock === 0 && <p>Producto sin stock</p>}
+
+      {!added ? (
+        <ItemCount stock={product.stock} onAdd={onAdd} />
+      ) : (
+        <p>Producto agregado al carrito 🛒</p>
+      )}
     </>
   );
 }

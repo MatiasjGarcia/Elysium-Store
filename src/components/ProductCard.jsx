@@ -10,7 +10,7 @@ export default function ProductCard({ product }) {
         </h3>
         <img width={160} src={product.image} alt={product.title} />
         <p>${product.price}</p>
-        <Link to={`/product/${product.id}`}>
+        <Link to={`/item/${product.id}`}>
         <button> Mas detalles</button>
         </Link>
       </article>

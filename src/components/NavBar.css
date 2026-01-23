@@ -1,14 +1,20 @@
 .NavBarStyle {
     display: flex;
     justify-content: space-between;
-    gap: 15px;
+    text-align: center;
+    font-size: 30px;
+    background-color: rgb(48, 43, 35);
+    padding: 30px;
 }
 
 a {
       color: #ffffff;
-    text-shadow: 1px 1px 5px rgba(192, 168, 123, 0.993);
+    text-shadow: 1px 1px 5px rgba(228, 189, 117, 0.993);
     text-decoration: none;
-    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
 }
 ul {
   list-style: none;   /* saca los puntos */
@@ -20,6 +26,7 @@ ul {
 
 .CarritoStyle{
     background-color: rgb(80, 72, 59);
+    width: auto;
 }
 .LogoStyle{
     width: 90px;
@@ -28,5 +35,5 @@ ul {
 
 .ContactStyle{
     color: rebeccapurple;
-    
+    background-color: black;
 }
